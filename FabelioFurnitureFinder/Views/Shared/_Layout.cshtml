@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Furniture Finder</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+    @*<script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>*@
+
+    <script src="~/Assets/app/app.js"></script>
+    <script src="~/Assets/app/furniture-list/furniture-list.module.js"></script>
+    <script src="~/Assets/app/furniture-list/furniture-list.component.js"></script>
+    <script src="~/Assets/app/core/core.module.js"></script>
+    <script src="~/Assets/app/core/checkmark/checkmark.filter.js"></script>
+
+
+    @RenderSection("scripts", required: false)
+
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<div>
+    <div class="py-3 mb-3 bg-primary">
+
+        <div class="input-group pb-3">
+            <div class="col-md-6">
+                <input type="text" aria-label="Search Furniture" placeholder="Search Furniture" class="form-control font-weight-bold col-md-12" ng-model="query" />
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="col-md-6">
+                
+                <select class="selectpicker form-control" id="fStyleValue" multiple title="Furniture Style" ng-model="furStyle" ng-change="updateStyle()">
+                    <option ng-repeat="style in furnitures.furniture_styles">{{style}}</option>
+                </select>
+            </div>
+        
+            <div class="col-md-6" >
+                <select class="selectpicker form-control" id="fTimeValue" multiple title="Delivery Time" ng-model="furTime" ng-change="updateTime()">
+                    <option>1 Week</option>
+                    <option>2 Week</option>
+                    <option>1 Month</option>
+                    <option>More</option>
+                </select>
+            </div>
+        </div>
+        
+
+
+    </div>
+
+</div>
+
+<div class="mb-4">
+    <div class="row row-cols-2 row-cols-md-2">
+        <div class="col mb-3" ng-repeat="furniture in furnitures.products | checkmark:furStyle:furTime | filter:query ">
+            <div class="card h-100">
+
+                <div class="card-body">
+                    <div class="row col-md-12 p-0 no-gutters top-section">
+                        <h5 class="card-title col-md-8">{{furniture.name}}</h5>
+                        <span class="col-md-4 text-warning font-weight-bold text-right furniture-price">IDR {{furniture.price | number:0}}</span>
+                    </div>
+
+                    <p class="card-text">{{furniture.description| limitTo:114}}</p>
+                    <span class="card-text text-primary align-text-bottom" ng-repeat="furnitureStyle in furniture.furniture_style">
+                        {{furnitureStyle}}
+                    </span>
+
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="font-weight-bold float-right"><u>{{furniture.delivery_time}} Days</u></a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
